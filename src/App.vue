@@ -1,32 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- 头部组件 -->
+    <LayoutHeader/>
+    <!-- 中间部分，一级路由容器 -->
+    <div class="wrapper">
+      <router-view/>
     </div>
-    <router-view/>
+    <!-- 底部组件 -->
+    <LayoutFooter/>
   </div>
 </template>
+<script>
+// 引入头部底部组件
+import LayoutHeader from '@/components/layout-header.vue'
+import LayoutFooter from '@/components/layout-footer.vue'
+
+export default {
+  components: {
+    LayoutHeader,
+    LayoutFooter
+  }
+
+}
+</script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
